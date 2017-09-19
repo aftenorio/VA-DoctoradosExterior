@@ -43,6 +43,14 @@ body {
   display: none;
 }
 
+#hombre {
+    color: #5790db;
+}
+
+#mujer {
+    color: #db83c5;
+}
+
 
 </style>
 
@@ -57,22 +65,11 @@ body {
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <a class="navbar-brand" href="#">Doctorados en el exterior</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
       </div>
     </nav>
 
@@ -81,12 +78,13 @@ body {
       <div class="mt-3">
         <h1>Economía es el doctorado más deseados por los colombianos en el exterior </h1>
       </div>
-      <p class="lead"> Según información pública de Colciencias, "economía" es el doctorado en el exterior más buscado por aquellos que aplican a una beca en esta entidad. El Top 10 de los doctorados más solicitados por los colombianos fue: <br> 1. Economía, 2. Derecho, 3. Ecología, 4. Ingeniería eléctrica 5. Ciencia política.
+      <p class="lead"> Según información pública de Colciencias, "economía" es el doctorado en el exterior más buscado por aquellos que aplican a una beca en esta entidad. El Top 5 de los doctorados más solicitados por los colombianos fue: <br> 1. Economía, 2. Derecho, 3. Ecología, 4. Ingeniería eléctrica 5. Ciencia política.
 
     </p>
 
       <svg class="chart"></svg>
 
+      <p class="lead"> El género es determinante en algunos de los posgrados. Por ejemplo <code id="hombre"> Ingeniería mecánica, Ciencias de la computación, Física e Ingeniería aeroespacial </code> cuentan con más del 75% de la población masculina, mientras que <code id="mujer"> Ecología, biología, antropología, educación y medicina</code> tienen un mayoe porcentaje de mujeres.</p>
 
     <div id="figure" style="margin-bottom: 0px;"></div>
 
