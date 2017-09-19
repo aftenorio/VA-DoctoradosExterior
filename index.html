@@ -9,7 +9,7 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
 
 
-    <title>Colombianos, aspirantes a becas en el exterior</title>
+    <title>PhD en el exterior</title>
 
 <style>
 
@@ -22,6 +22,16 @@ body {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
 }
 
 </style>
@@ -59,11 +69,19 @@ body {
     <!-- Begin page content -->
     <div class="container">
       <div class="mt-3">
-        <h1>Sticky footer with fixed navbar</h1>
+        <h1>Economía es el doctorado más deseados por los colombianos en el exterior </h1>
       </div>
-      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+      <p class="lead"> Según información pública de Colciencias, "economía" es el doctorado en el exterior más buscado por aquellos que aplican a una beca en esta entidad. El Top 10 de los doctorados más solicitados por los colombianos fue: <br> 1. Economía, 2. Derecho, 3. Ecología, 4. Ingeniería eléctrica 5. Ciencia política.
+
+    </p>
+
+      <svg class="chart"></svg>
+
 
     <div id="figure" style="margin-bottom: 0px;"></div>
+
+
+
 
     </div>
 
@@ -93,7 +111,7 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 var color = d3.scale.ordinal()
-    .range(["#e08dd6","#5790db"]);
+    .range(["#db83c5","#5790db"]);
 
 var svg = d3.select('#figure').append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -196,7 +214,69 @@ d3.csv("data.csv", function(error, data) {
 
 });
 
+
+
+
 </script>
+
+<script>
+
+var margin2 = {top: 20, right: 30, bottom: 30, left: 40},
+    width2 = 960 - margin2.left - margin2.right,
+    height2 = 500 - margin2.top - margin2.bottom;
+
+var x2 = d3.scale.ordinal()
+    .rangeRoundBands([0, width2], .1);
+
+var y2 = d3.scale.linear()
+    .range([height2, 0]);
+
+var xAxis2 = d3.svg.axis()
+    .scale(x2)
+    .orient("bottom");
+
+var yAxis2 = d3.svg.axis()
+    .scale(y2)
+    .orient("left");
+
+var chart2 = d3.select(".chart")
+    .attr("width", width2 + margin2.left + margin2.right)
+    .attr("height", height2 + margin2.top + margin2.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+d3.tsv("data.tsv", type, function(error, data) {
+  x2.domain(data.map(function(d) { return d.name; }));
+  y2.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+  chart2.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height2 + ")")
+      .call(xAxis2);
+
+  chart2.append("g")
+      .attr("class", "y axis")
+      .call(yAxis2);
+
+  chart2.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x2(d.name); })
+      .attr("y", function(d) { return y2(d.value); })
+      .attr("height", function(d) { return height2 - y(d.value); })
+      .attr("width", x2.rangeBand());
+});
+
+function type(d) {
+  d.value = +d.value; // coerce to number
+  return d;
+}
+
+</script>
+
+
+
 
     <footer class="footer">
       <div class="container">
