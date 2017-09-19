@@ -1,0 +1,69 @@
+rows,Mujeres,Hombres
+Economía,57,90
+Derecho,51,67
+Ecología,76,38
+Ingeniería eléctrica y electrónica, 20,88
+Ciencia política,54,52
+Ingeniería civil, 26, 77
+Medicina, 50, 43
+Ingeniería mecánica, 5, 77
+Ciencias biológicas, 39, 36
+Otras biologías, 49, 26
+Negocios y economía, 19, 49
+Otras ingenierías, 22, 45
+Ingeniería química, 28, 55
+Ciencias de la computación, 14, 51
+Educación, 34, 26
+Negocios y management, 21, 39
+Sociología, 31, 29
+Química orgánica, 23, 31
+Otras ciencias sociales, 25, 27
+Psicología, 45, 35
+Agronomía, 23, 27
+Antropología, 33, 16
+Ciencias veterinarias, 23, 26
+Ciencias de la salud, 27, 19
+Biología celular y microbiología, 29, 15
+Física, 10, 54
+Genética, 20, 24
+Salud pública, 26, 18
+Ciencias medioambientales, 18, 25
+Ingeniería de producción, 6, 35
+Estudios urbanos y planificación, 15, 23
+Geociencias, 14, 24
+Ingeniería médica, 13, 25
+Matemáticas, 12, 45
+Matemática criobiológica, 16, 20
+Lingüística, 15, 18
+Ciencias de la educación, 15, 17
+Filosofía, 11, 21
+Historia, 19, 14
+Zoología, 12, 20
+Arquitectura, 10, 21
+Compuestos y pláticos, 11, 20
+Ciencias naturales, 12,17
+Otras humanidades, 15, 14
+Química, 15, 11
+Comunicación social, 17, 8
+Bioquímica, 12, 12
+Alimentos y bebidas, 15, 8
+Arte, 7, 12
+Farmacología, 12, 7
+Ingeniería ambiental, 11, 8
+Idiomas y literatura, 9, 8
+Geografía, 6, 9
+Ingeniería aerospacial, 0, 15
+Ingeniería de materiales, 8, 7
+Geografía, 7, 7
+Estadística, 8, 5
+Periodismo, 4, 6
+Nutrición, 4, 5
+Nanotecnología, 2, 6
+Biofísica, 1, 4
+Oceanografía, 2, 3
+Astronomía, 3, 1
+Diseño, 2, 2
+Ingeniería nuclear, 0, 3
+Odontología, 0, 3
+Arqueología, 1, 1
+Ciencia del Deporte, 0, 1
