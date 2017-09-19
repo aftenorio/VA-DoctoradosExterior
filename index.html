@@ -28,6 +28,14 @@ body {
   fill: rgb(100,200, 200);
 }
 
+.Hombres {
+  fill: #5790db;
+}
+
+.Mujeres {
+  fill: #db83c5;
+}
+
 .axis2 text {
   font: 10px sans-serif;
 }
@@ -84,9 +92,15 @@ body {
 
       <svg class="chart"></svg>
 
-      <p class="lead"> El género es determinante en algunos de los posgrados. Por ejemplo <code id="hombre"> Ingeniería mecánica, Ciencias de la computación, Física e Ingeniería aeroespacial </code> cuentan con más del 75% de la población masculina, mientras que <code id="mujer"> Ecología, biología, antropología, educación y medicina</code> tienen un mayoe porcentaje de mujeres.</p>
+      <p class="lead"> El género es determinante en algunos de los posgrados. Por ejemplo <code id="hombre"> Ingeniería mecánica, Ciencias de la computación, Física e Ingeniería aeroespacial </code> cuentan con más del 75% de la población masculina, mientras que <code id="mujer"> Ecología, biología, antropología, educación y medicina</code> tienen un mayor porcentaje de mujeres.</p>
 
     <div id="figure" style="margin-bottom: 0px;"></div>
+
+     <p class="lead"> Entre el 2010 y el 2016 se presentaron 3183 personas, es decir en promedio 44 al mes. <code id="mujer">1845 mujeres </code> y <code id="hombre">1338 hombres </code>.</p>
+      <svg class="chart3"></svg>
+
+
+
 
 
 
@@ -274,6 +288,62 @@ d3.tsv("data.tsv", type, function(error, data) {
       .attr("y", function(d) { return y2(d.value); })
       .attr("height", function(d) { return height2 - y2(d.value); })
       .attr("width", x2.rangeBand());
+});
+
+function type(d) {
+  d.value = +d.value; // coerce to number
+  return d;
+}
+
+</script>
+
+<script>
+
+var margin3 = {top: 20, right: 30, bottom: 30, left: 40},
+    width3 = 1000 - margin3.left - margin3.right,
+    height3 = 300 - margin3.top - margin3.bottom;
+
+var x3 = d3.scale.ordinal()
+    .rangeRoundBands([0, width3], .1);
+
+var y3 = d3.scale.linear()
+    .range([height3, 0]);
+
+var xAxis3 = d3.svg.axis()
+    .scale(x3)
+    .orient("bottom");
+
+var yAxis3 = d3.svg.axis()
+    .scale(y3)
+    .orient("left");
+
+var chart3 = d3.select(".chart3")
+    .attr("width", width3 + margin3.left + margin3.right)
+    .attr("height", height3 + margin3.top + margin3.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+
+d3.tsv("data2.tsv", type, function(error, data) {
+  x3.domain(data.map(function(d) { return d.name; }));
+  y3.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+  chart3.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height3 + ")")
+      .call(xAxis3);
+
+  chart3.append("g")
+      .attr("class", "y axis")
+      .call(yAxis2);
+
+  chart3.selectAll(".bar3")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", function(d) { return d.name;})
+      .attr("x", function(d) { return x3(d.name); })
+      .attr("y", function(d) { return y3(d.value); })
+      .attr("height", function(d) { return height2 - y3(d.value); })
+      .attr("width", x3.rangeBand());
 });
 
 function type(d) {
